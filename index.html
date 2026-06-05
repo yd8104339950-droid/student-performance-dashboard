@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Performance Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">Y</div><div><h1>Student Dashboard</h1><p>Performance • Attendance • Progress</p></div></div>
+      <nav><a href="#overview" class="active">Overview</a><a href="#subjects">Subjects</a><a href="#planner">Planner</a><a href="#insights">Insights</a></nav>
+      <div class="sidebar-card"><p class="tiny">Current Focus</p><h3 id="focusSubject">Loading...</h3><p id="focusReason">Finding your weakest area.</p></div>
+    </aside>
+
+    <main class="main-content">
+      <section class="hero" id="overview">
+        <div>
+          <p class="eyebrow">Working student performance dashboard</p>
+          <h2>Track marks, attendance, weak subjects, and study progress in one place.</h2>
+          <p class="hero-text">Add your subjects, update marks and attendance, and the dashboard will automatically calculate your overall performance and priority areas.</p>
+        </div>
+        <div class="student-card"><p class="tiny">Student</p><h3 id="studentName">Yash Deshpande</h3><p>B.E. Electronics Engineering</p><span class="status-pill">Live local dashboard</span></div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card"><p>Overall Score</p><h3 id="overallScore">0%</h3><span id="overallLabel">Calculating</span></article>
+        <article class="stat-card"><p>Average Attendance</p><h3 id="avgAttendance">0%</h3><span id="attendanceLabel">Calculating</span></article>
+        <article class="stat-card"><p>Syllabus Completed</p><h3 id="syllabusDone">0%</h3><span id="syllabusLabel">Calculating</span></article>
+        <article class="stat-card warning"><p>High Priority</p><h3 id="riskCount">0</h3><span>Subjects need attention</span></article>
+      </section>
+
+      <section class="panel" id="subjects">
+        <div class="panel-header"><div><p class="eyebrow">Subject tracker</p><h2>Add or update a subject</h2></div><button class="secondary-btn" id="resetData">Reset sample data</button></div>
+        <form class="subject-form" id="subjectForm">
+          <label>Subject<input type="text" id="subject" placeholder="Example: ECD" required /></label>
+          <label>Marks<input type="number" id="marks" min="0" placeholder="42" required /></label>
+          <label>Max Marks<input type="number" id="maxMarks" min="1" placeholder="60" required /></label>
+          <label>Attendance %<input type="number" id="attendance" min="0" max="100" placeholder="78" required /></label>
+          <label>Chapters Done<input type="number" id="chaptersDone" min="0" placeholder="3" required /></label>
+          <label>Total Chapters<input type="number" id="totalChapters" min="1" placeholder="6" required /></label>
+          <label>Exam Date<input type="date" id="examDate" required /></label>
+          <button type="submit" class="primary-btn">Save Subject</button>
+        </form>
+      </section>
+
+      <section class="grid-two">
+        <article class="panel"><div class="panel-header"><div><p class="eyebrow">Performance chart</p><h2>Marks by subject</h2></div></div><div id="performanceChart" class="chart"></div></article>
+        <article class="panel" id="planner"><div class="panel-header"><div><p class="eyebrow">Priority planner</p><h2>What to study first</h2></div></div><div id="priorityList" class="priority-list"></div></article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header"><div><p class="eyebrow">Subject table</p><h2>All subjects</h2></div></div>
+        <div class="table-wrap"><table><thead><tr><th>Subject</th><th>Score</th><th>Attendance</th><th>Syllabus</th><th>Exam</th><th>Status</th><th></th></tr></thead><tbody id="subjectRows"></tbody></table></div>
+      </section>
+
+      <section class="panel" id="insights">
+        <div class="panel-header"><div><p class="eyebrow">Auto insights</p><h2>Dashboard recommendations</h2></div></div>
+        <div id="insightsBox" class="insights-box"></div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
